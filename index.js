@@ -96,16 +96,16 @@ app.post('/users/login', async (req, res) => {
         if (!result) {
           return res.status(401).json({ message: "wrong password" });
         }
-        jwt.sign({ email: user.email, username:user.username, password: user.password }, 'secretkey', (err, token) => {
+        jwt.sign({ email: user.email, username: user.username, password: user.password }, 'secretkey', (err, token) => {
           return res.status(200).json({
-              message: "login sucessful",
+            message: "login sucessful",
             token
-       });
-      })
-      })
+          });
+        });
+      });
     }
   } catch (error) {
-    res.status(500)
+    res.status(500).send();
   }
 }
 )
