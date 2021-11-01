@@ -66,7 +66,7 @@ app.post('/users', async (req, res) => {
         if (password !== confirmPassword) {
             res.status(406).send("password and Confirm password entries should match.")
 
-        //Use bcrypt to has the password and add the user to the users array
+        //Use bcrypt to hash the password and add the user to the users array
         } else {
             const hashedPassword = await bcrypt.hash(password, 10)
             const user = { username, email, password: hashedPassword}
